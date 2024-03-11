@@ -68,9 +68,7 @@ function AgregarGrua() {
       setPublicacionExitosa(true);
 
       // Recargar la página después de 2 segundos (ajusta el tiempo según tus necesidades)
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+     
     } catch (error) {
       console.error("Error al publicar la grúa:", error.message);
       // Puedes manejar el error de acuerdo a tus necesidades
