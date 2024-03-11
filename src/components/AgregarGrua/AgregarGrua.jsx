@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AgregarGrua.css";
 import { useSelector } from "react-redux";
-
+import { SERVER_URL } from '../../constants/constants';
 function AgregarGrua() {
   const [gruaInfo, setGruaInfo] = useState({
     marca: "",
@@ -53,7 +53,7 @@ function AgregarGrua() {
       formData.append("clienteId", usuario.id);
 
       // Realizar la solicitud POST al backend
-      await axios.post("http://localhost:3000/gruas", formData);
+      await axios.post(`${SERVER_URL}/gruas`, formData);
 
       // Limpiar el formulario después de la publicación exitosa
       setGruaInfo({

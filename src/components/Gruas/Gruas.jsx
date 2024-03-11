@@ -4,12 +4,14 @@ import axios from 'axios';
 import './Gruas.css';
 import Footer from '../footer/Footer';
 import GruasP2 from './GruasP2/GruasP2';
+import { SERVER_URL } from '../../constants/constants';
+
 
 const Gruas = () => {
   const [gruas, setGruas] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/getGruasInfo')
+    axios.get(`${SERVER_URL}/getGruasInfo`)
       .then((response) => {
         setGruas(response.data);
       })
