@@ -28,6 +28,7 @@ export default function Register() {
 
     if (response.ok) {
       alert('Usuario registrado exitosamente');
+      window.location.href = '/';
     } else {
       const errorData = await response.json(); // Intenta parsear la respuesta como JSON
       console.error('Error al registrar el usuario:', errorData);
