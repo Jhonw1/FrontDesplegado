@@ -16,7 +16,7 @@ function Chat() {
         e.preventDefault(); 
 
         try {
-            const response = await fetch('https://gruapp.netlify.app/chat', {
+            const response = await fetch('/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
