@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import Footer from '../footer/Footer'
+import Footer from '../Section/Section'
 
 const About = () => {
   return (
