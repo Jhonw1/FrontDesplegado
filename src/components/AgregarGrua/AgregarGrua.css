@@ -1,24 +1,69 @@
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+.containerAgregar {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+.containerInfoAgregar{
+  background-color: rgb(68, 68, 68);
+  border-radius: 20px;
+  height: 80vh;
+  margin-top: 90px;
+  text-align: center;
+  padding: 20px;
+  width: 450px;
+}
+.tituloAgregar{
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+}
+.labelAgregar{
+  color: white;
+  margin-top: 15px;
+} 
+.customFileInput{
+  width: 50%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: #0DCAF0;
+  color: black;
+}
+.customFileInput:hover{
+  background-color: #0b9bb8;
+}
+.campoFotoGrua{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imagenAgregar{
+  height: 100px;
+}
+.publicar{
+  background-color: transparent;
+  color: white; /* Color del texto del botón fantasma */
+  border: 2px solid #3498db; /* Borde contorneado */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  width: 50%;
+  margin-left: 25%;
+}
+.publicar:hover{
+  background-color: #3498db; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+  color: black;   
   
-  div {
-    text-align: center;
-  }
-  
-  input {
-    margin-top: 10px;
-  }
-  
-  img {
-    margin-top: 10px;
-    max-width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
+}
+.inputAgregar{
+  width: 60%;
+}
+
+
+

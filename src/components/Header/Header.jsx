@@ -36,7 +36,7 @@ export default function Header() {
         <ul>
           <li>
             <NavLink className='opciones' to="/">Inicio</NavLink>
-            <NavLink className='opciones' to="/gruas">Servicios</NavLink>
+            <NavLink className='opciones' to="/Gruas">Servicios</NavLink>
 
             {usuarioAutenticado && (
               <NavLink className='aggGrua' to="/AgregarGrua">+ Grúa</NavLink>
@@ -54,7 +54,10 @@ export default function Header() {
                       </NavLink>
                     )}
                   </li>
+                  <li>
+                    <NavLink className='opciones' to="/About">About</NavLink>
 
+                  </li>
                   <li>
                     {usuarioAutenticado && (
                       <NavLink to="/" onClick={handleLogout}>
