@@ -1,0 +1,114 @@
+
+
+.profile-editor {
+  width: 35%;
+  padding: 20px;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  background-color: black;
+}
+.profile-photo {
+  border-radius: 50%;
+  width: 100px; /* Ajusta el tamaño según sea necesario */
+  height: 100px; /* Ajusta el tamaño según sea necesario */
+  object-fit: cover; /* Para mantener la relación de aspecto */
+}
+.input-cambiar{
+  display: none;
+}
+.option-cambiar{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 24%;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+}
+
+.option-cambiar label {
+  background-color: #0096F5; /* Cambiar el color de fondo según tu preferencia */
+  color: #fff; /* Cambiar el color del texto según tu preferencia */
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+}
+
+.form-group{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4%;
+  background-color: #262626;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #858484;
+
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.section-perfil{
+  background: linear-gradient(45deg, #7c7d7e, #000000, #444444, #7d7d7e);
+  height: 130vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.input-user{
+ width: 85%;
+ background-color: #262626;
+ border:none;
+ color: white;
+}
+
+.input-email{
+  width: 70%;
+  background-color: #262626;
+  border: none;
+  color: white;
+}
+.input-phoneNumber{
+  width: 85%;
+  background-color: #262626;
+  border: none;
+  color: white;
+}

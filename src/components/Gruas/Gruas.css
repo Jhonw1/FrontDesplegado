@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+.infoGruas{
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr); /* 3 columnas */
+  grid-template-rows: repeat(3, 1fr); /* 2 filas */
+  gap: 45px; /* Espacio entre las grúas */
+  padding: 0 50px 0 50px;
+  }
+.container-Image{
+  overflow: hidden;
+  width: 100%; 
+  height: 200px;
+  margin-top: 20px;
+}
+.hrImage{
+  margin-top: -2%;
+  background-color: black;
+  height: 2%;
+}
+.imageG{
+  width: 10%;
+  height: 70%;
+  animation: mover 25s linear infinite;
+}
+@keyframes mover{
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(890%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+  
+  .grua-item {
+    background-color: #1F2124;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  .grua-item:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 5px 4px #1F2124;
+  }
+  
+
+  
+  .grua-imagen {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .calificacion-container {
+    margin-top: 10px;
+  }
+  
+  .star-filled {
+    cursor: pointer;
+  }
+  
+  
+
+  .gruas-container h1{      
+  text-align: center;
+  margin-bottom: 30px; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  padding-bottom: 10px; 
+  transition: color 0.3s ease
+
+  }
+
+ 
