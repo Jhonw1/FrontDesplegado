@@ -16,7 +16,7 @@ function Chat() {
         e.preventDefault(); 
 
         try {
-            const response = await fetch('/chat', {
+            const response = await fetch('/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
