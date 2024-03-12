@@ -4,24 +4,83 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 120vh;
   margin: 0;
   background-color: black;
   color: white;
+  
 }
+
 .containerInfoAgregar{
-  background-color: rgb(68, 68, 68);
-  border-radius: 20px;
-  height: 80vh;
+  background-color: black;
+  border-radius: 15px;
+  height: 94vh;
   margin-top: 90px;
   text-align: center;
-  padding: 20px;
   width: 450px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.containerInfoAgregar::before{
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 450px;
+  height: 93vh;
+  background: linear-gradient(0deg, transparent, #e30a13,#e30a13);
+  transform-origin: bottom right;
+  animation: animate 5s linear infinite;
+  animation-delay: -3s;
+}
+.containerInfoAgregar::after{
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 450px;
+  height: 93vh;
+  background: linear-gradient(0deg, transparent, #e30a13,#e30a13);
+  transform-origin: bottom right;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.formAgregar{
+  position: absolute;
+  border-radius: 15px;
+  background: rgb(68, 68, 68);
+  z-index: 10;
+  width: 98%;
+  height: 93vh;
+}
+
 .tituloAgregar{
   margin-bottom: 30px;
   margin-top: 30px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column  ;
+  justify-content: center;
+}
+.hrAgregarGrua{
+  border-color: #e30a13;
+  width: 54%;
+  height: 1px;
+  background-color: #e30a13;
 }
 .labelAgregar{
   color: white;

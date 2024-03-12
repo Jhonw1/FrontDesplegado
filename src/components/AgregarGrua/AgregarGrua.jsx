@@ -84,13 +84,18 @@ function AgregarGrua() {
   return (
     <div className="containerAgregar">
       <div className="containerInfoAgregar">
-        <h2 className="tituloAgregar">Publicar nueva grúa</h2>
         <form
           className="formAgregar"
           onSubmit={handlePublish}
           encType="multipart/form-data"
           method="post"
         >
+        <h2 className="tituloAgregar">
+          Publicar nueva grúa
+          <hr className="hrAgregarGrua" />
+          </h2>
+
+        <div className="containerFormulario">
           <div>
             <label className="labelAgregar" htmlFor="marca">
               Marca:
@@ -102,7 +107,7 @@ function AgregarGrua() {
               name="marca"
               value={gruaInfo.marca}
               onChange={handleInputChange}
-            />
+              />
           </div>
           <div>
             <label className="labelAgregar" htmlFor="modelo">
@@ -115,7 +120,7 @@ function AgregarGrua() {
               name="modelo"
               value={gruaInfo.modelo}
               onChange={handleInputChange}
-            />
+              />
           </div>
           <div>
             <label className="labelAgregar" htmlFor="capacidad">
@@ -128,7 +133,7 @@ function AgregarGrua() {
               name="capacidad"
               value={gruaInfo.capacidad}
               onChange={handleInputChange}
-            />
+              />
           </div>
           <div>
             <label className="labelAgregar" htmlFor="whatsapp">
@@ -141,8 +146,9 @@ function AgregarGrua() {
               name="whatsapp"
               value={gruaInfo.whatsapp}
               onChange={handleInputChange}
-            />
+              />
           </div>
+              </div>
 
           {/* Nuevo campo para la foto */}
           <div className="campoFotoGrua">
@@ -186,5 +192,6 @@ function AgregarGrua() {
     </div>
   );
 }
+
 
 export default AgregarGrua;
