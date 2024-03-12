@@ -8,6 +8,7 @@ function AgregarGrua() {
     marca: "",
     modelo: "",
     capacidad: "",
+    whatsapp: "+57",
     foto: null,
   });
 
@@ -49,6 +50,7 @@ function AgregarGrua() {
       formData.append("marca", gruaInfo.marca);
       formData.append("modelo", gruaInfo.modelo);
       formData.append("capacidad", gruaInfo.capacidad);
+      formData.append("whatsapp", gruaInfo.whatsapp);
       formData.append("foto", gruaInfo.foto);
       formData.append("clienteId", usuario.id);
 
@@ -60,6 +62,7 @@ function AgregarGrua() {
         marca: "",
         modelo: "",
         capacidad: "",
+        whatsapp: "",
         foto: null,
       });
 
@@ -127,6 +130,20 @@ function AgregarGrua() {
               onChange={handleInputChange}
             />
           </div>
+          <div>
+            <label className="labelAgregar" htmlFor="whatsapp">
+              Numero Whatsapp:
+            </label>
+            <input
+              className="inputAgregar"
+              type="tel"
+              id="whatsapp"
+              name="whatsapp"
+              value={gruaInfo.whatsapp}
+              onChange={handleInputChange}
+            />
+          </div>
+
           {/* Nuevo campo para la foto */}
           <div className="campoFotoGrua">
             <label className="labelAgregar" htmlFor="foto">

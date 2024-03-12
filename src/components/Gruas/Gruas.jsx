@@ -20,12 +20,18 @@ const Gruas = () => {
       });
   }, []);
 
-  const openWhatsAppChat = (phoneNumber) => {
-    const whatsappNumber = `+573146340714`;  // Reemplaza con el número de teléfono de la grúa
-    const message = 'Hola, estoy interesado en tus servicios de grúa.';
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+  const openWhatsAppChat = (grua) => {
+    // Comprobar si la propiedad 'whatsapp' existe en el objeto 'grua'
+ if (grua && grua.whatsapp) {
+   const whatsappNumber = grua.whatsapp;
+   const message = 'Hola, estoy interesado en tus servicios de grúa.';
+   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+   window.open(whatsappUrl, '_blank');
+ } else {
+   console.error('El objeto grua no tiene la propiedad "whatsapp" definida.');
+   // Puedes manejar esto de acuerdo a tus necesidades, por ejemplo, mostrando un mensaje de error.
+ }
+};
 
   return (
     <div className="gruas-container">
@@ -41,7 +47,7 @@ const Gruas = () => {
             <h2 className='tituloGruas'>{grua.marca}</h2>
             <p>Modelo: {grua.modelo}</p>
             <p>Capacidad: {grua.capacidad}</p>
-            <button className="contactar-btn" onClick={() => openWhatsAppChat(grua.phone)}>Contactar por WhatsApp</button>
+            <button className="contactar-btn" onClick={() => openWhatsAppChat(grua)}>Contactar por WhatsApp</button>
           </div>
         ))}
       </div>
