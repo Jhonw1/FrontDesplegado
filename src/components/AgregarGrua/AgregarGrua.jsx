@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AgregarGrua.css";
 import { useSelector } from "react-redux";
+import Swal from 'sweetalert2'; // Importa SweetAlert2
 import { SERVER_URL } from '../../constants/constants';
+
 function AgregarGrua() {
   const [gruaInfo, setGruaInfo] = useState({
     marca: "",
@@ -13,13 +15,10 @@ function AgregarGrua() {
   });
 
   const usuario = useSelector((state) => state.client?.client);
-  const [publicacionExitosa, setPublicacionExitosa] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, type } = e.target;
-
-    // Si el campo es de tipo "file", accede al archivo seleccionado
     const fieldValue = type === "file" ? e.target.files[0] : e.target.value;
 
     setGruaInfo((prevInfo) => ({
@@ -36,16 +35,12 @@ function AgregarGrua() {
     e.preventDefault();
 
     try {
-      // Validar que se haya seleccionado una foto
       if (!gruaInfo.foto) {
-        // Puedes mostrar un mensaje de error aquí
         return;
       }
 
-      // Activar el indicador de carga
       setIsLoading(true);
 
-      // Crear un objeto FormData y agregar la imagen y otros campos
       const formData = new FormData();
       formData.append("marca", gruaInfo.marca);
       formData.append("modelo", gruaInfo.modelo);
@@ -54,10 +49,8 @@ function AgregarGrua() {
       formData.append("foto", gruaInfo.foto);
       formData.append("clienteId", usuario.id);
 
-      // Realizar la solicitud POST al backend
       await axios.post(`${SERVER_URL}/gruas`, formData);
 
-      // Limpiar el formulario después de la publicación exitosa
       setGruaInfo({
         marca: "",
         modelo: "",
@@ -66,17 +59,19 @@ function AgregarGrua() {
         foto: null,
       });
 
-      // Desactivar el indicador de carga y mostrar mensaje de éxito
       setIsLoading(false);
-      setPublicacionExitosa(true);
-
-      // Recargar la página después de 2 segundos (ajusta el tiempo según tus necesidades)
-     
+      
+      // Mostrar la alerta después de publicar la grúa
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Grua publicada",
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (error) {
       console.error("Error al publicar la grúa:", error.message);
-      // Puedes manejar el error de acuerdo a tus necesidades
     } finally {
-      // Desactivar el indicador de carga después de la solicitud (éxito o fallo)
       setIsLoading(false);
     }
   };
@@ -90,67 +85,61 @@ function AgregarGrua() {
           encType="multipart/form-data"
           method="post"
         >
-        <h2 className="tituloAgregar">
-          Publicar nueva grúa
-          <hr className="hrAgregarGrua" />
-          </h2>
-
-        <div className="containerFormulario">
-          <div>
-            <label className="labelAgregar" htmlFor="marca">
-              Marca:
-            </label>
-            <input
-              className="inputAgregar"
-              type="text"
-              id="marca"
-              name="marca"
-              value={gruaInfo.marca}
-              onChange={handleInputChange}
+          <h2 className="tituloAgregar">Publicar nueva grúa</h2>
+          <div className="containerFormulario">
+            <div>
+              <label className="labelAgregar" htmlFor="marca">
+                Marca:
+              </label>
+              <input
+                className="inputAgregar"
+                type="text"
+                id="marca"
+                name="marca"
+                value={gruaInfo.marca}
+                onChange={handleInputChange}
               />
-          </div>
-          <div>
-            <label className="labelAgregar" htmlFor="modelo">
-              Modelo:
-            </label>
-            <input
-              className="inputAgregar"
-              type="text"
-              id="modelo"
-              name="modelo"
-              value={gruaInfo.modelo}
-              onChange={handleInputChange}
+            </div>
+            <div>
+              <label className="labelAgregar" htmlFor="modelo">
+                Modelo:
+              </label>
+              <input
+                className="inputAgregar"
+                type="text"
+                id="modelo"
+                name="modelo"
+                value={gruaInfo.modelo}
+                onChange={handleInputChange}
               />
-          </div>
-          <div>
-            <label className="labelAgregar" htmlFor="capacidad">
-              Capacidad:
-            </label>
-            <input
-              className="inputAgregar"
-              type="text"
-              id="capacidad"
-              name="capacidad"
-              value={gruaInfo.capacidad}
-              onChange={handleInputChange}
+            </div>
+            <div>
+              <label className="labelAgregar" htmlFor="capacidad">
+                Capacidad:
+              </label>
+              <input
+                className="inputAgregar"
+                type="text"
+                id="capacidad"
+                name="capacidad"
+                value={gruaInfo.capacidad}
+                onChange={handleInputChange}
               />
-          </div>
-          <div>
-            <label className="labelAgregar" htmlFor="whatsapp">
-              Numero Whatsapp:
-            </label>
-            <input
-              className="inputAgregar"
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              value={gruaInfo.whatsapp}
-              onChange={handleInputChange}
+            </div>
+            <div>
+              <label className="labelAgregar" htmlFor="whatsapp">
+                Numero Whatsapp:
+              </label>
+              <input
+                className="inputAgregar"
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                value={gruaInfo.whatsapp}
+                onChange={handleInputChange}
               />
+            </div>
           </div>
-              </div>
-
-          {/* Nuevo campo para la foto */}
           <div className="campoFotoGrua">
             <label className="labelAgregar" htmlFor="foto">
               Foto de la grúa:
@@ -162,7 +151,6 @@ function AgregarGrua() {
               name="foto"
               onChange={handleInputChange}
             />
-            {/* Botón personalizado para seleccionar archivo */}
             <button
               type="button"
               className="customFileInput"
@@ -170,7 +158,6 @@ function AgregarGrua() {
             >
               Seleccionar archivo
             </button>
-            {/* Mostrar la foto seleccionada con tamaño reducido */}
             {gruaInfo.foto && (
               <img
                 className="imagenAgregar"
@@ -180,10 +167,6 @@ function AgregarGrua() {
               />
             )}
           </div>
-          {/* Agregar mensaje de éxito */}
-          {publicacionExitosa && <p>La grúa se publicó exitosamente.</p>}
-
-          {/* Botón de publicar con indicador de carga */}
           <button className="publicar" disabled={!gruaInfo.foto || isLoading}>
             {isLoading ? "Publicando..." : "Publicar"}
           </button>
@@ -192,6 +175,5 @@ function AgregarGrua() {
     </div>
   );
 }
-
 
 export default AgregarGrua;

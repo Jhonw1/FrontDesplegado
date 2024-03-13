@@ -1,3 +1,24 @@
+.swal2-popup {
+  font-size: 16px; /* Cambia el tamaño de la fuente de toda la alerta */
+  max-width: 300px; /* Cambia el ancho máximo de la alerta si es necesario */
+  /* Otros estilos que desees aplicar */
+}
+.my-popup-class .swal2-title {
+  font-size: 20px; /* Cambia el tamaño del título */
+  color: #0fff53;
+}
+
+.my-popup-class .swal2-content {
+  font-size: 15px; /* Cambia el tamaño del contenido */
+}
+
+.my-popup-class .swal2-confirm {
+  font-size: 18px; /* Cambia el tamaño del botón de confirmación */
+  background-color: #53f905;
+  color: #000000;
+}
+
+
 .registro-container {
     background-color: black;
     display: flex;
@@ -80,8 +101,6 @@
       background-position: 0% 50%;
     }
   }
-  
 
-  
 
   
