@@ -38,7 +38,7 @@ export default function Register() {
         }
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = '/login';
+          window.location.href = '/';
         }
       });
     } else {
