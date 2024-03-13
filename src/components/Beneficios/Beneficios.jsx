@@ -8,11 +8,11 @@ export default function Beneficio() {
         <img src="https://cdn.pixabay.com/photo/2018/05/11/23/45/highway-3392100_1280.jpg" alt="" />  
       </div>
 
-
-      <div className="containerBeneficio">
+      <div className="tituloBeneficio">
         <h1>Cuando pides un servicio en Gruapp obtienes:
-          <hr className='hrBeneficio' />
         </h1>
+      </div>
+      <div className="containerBeneficio">
         <div className="lista">
             <ul>
                   <li>Soporte 24/7</li>

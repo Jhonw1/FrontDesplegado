@@ -20,6 +20,7 @@
 .tituloServicio p{
     margin-top: 2%;
     font-size: 18px;
+    text-align: justify;
 }
 .containerP2{
     grid-column: 2/3;
@@ -29,6 +30,10 @@
     display: flex;
     margin-top: 50px;
     justify-content: space-between;
+}
+.icon-reloj img{
+    width: 20%;
+    height: 20%;
 }
 .info-Reloj{
     width: 74%;
