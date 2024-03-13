@@ -47,7 +47,7 @@ const Gruas = () => {
             <h2 className='tituloGruas'>{grua.marca}</h2>
             <p>Modelo: {grua.modelo}</p>
             <p>Capacidad: {grua.capacidad}</p>
-            <button className="contactar-btn" onClick={() => openWhatsAppChat(grua)}>Contactar por WhatsApp</button>
+            <button className="contactar-btn" onClick={() => openWhatsAppChat(grua)}> WhatsApp <img className='logoWhatsapp' src="https://cdn-icons-png.flaticon.com/128/15047/15047389.png" alt=""/> </button>
           </div>
         ))}
       </div>

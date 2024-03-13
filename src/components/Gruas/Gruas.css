@@ -86,7 +86,7 @@
 
 
 .contactar-btn {
-  background-color: rgb(33, 202, 95); 
+  background-color: #1BD741; 
   color: black; 
   padding: 10px 20px; 
   border: none;
@@ -95,11 +95,23 @@
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.2s ease; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  width: 70%;
-  margin-left: 15%;
+  width: 60%;
+  margin-left: 19%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  
+
 }
 
 .contactar-btn:hover {
   background-color: #0ce49c; 
   transform: scale(1.05);
+ 
 }
+
+.logoWhatsapp {
+  width: 18%; 
+
+}
+
