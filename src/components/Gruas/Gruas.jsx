@@ -43,7 +43,7 @@ const Gruas = () => {
       <div className="gruas-list">
         {gruas.map((grua) => (
           <div key={grua.id} className="grua-item">
-            <img src={`http://localhost:3000${grua.foto_path}`} alt={grua.marca} className="grua-imagen" />
+            <img src={`${SERVER_URL}${grua.foto_path}`} alt={grua.marca} className="grua-imagen" />
             <h2 className='tituloGruas'>{grua.marca}</h2>
             <p>Modelo: {grua.modelo}</p>
             <p>Capacidad: {grua.capacidad}</p>
