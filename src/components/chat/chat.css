@@ -1,125 +1,157 @@
 /* Estilos CSS para la aplicación */
 .App {
-    position: fixed;
-    bottom: 20px; /* Distancia desde el borde inferior */
-    right: 20px; /* Distancia desde el borde derecho */
-    z-index: 999; /* Asegura que esté por encima de otros elementos */
-    background-color: transparent;
-    font-family: "Roboto", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  /* Estilos CSS para el contenedor del chat */
-  .chat-container {
-    max-height: 300px; /* Altura máxima del contenedor del chat */
-    overflow-y: auto; /* Agregar barra de desplazamiento vertical si el contenido excede la altura máxima */
-    width: 300px; /* Ancho máximo del contenedor del chat */
-    background-color: transparent; /* Color de fondo del contenedor del chat */
-    border: none; /* Borde del contenedor del chat */
-    border-radius: 10px; /* Borde redondeado del contenedor del chat */
-    padding: 10px; /* Espaciado interno del contenedor del chat */
-    
-    
-   
-  }
-  
-  /* Estilos CSS para el contenedor de cada mensaje */
-  .message {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px; 
-  }
-  
-  /* Estilos CSS para la burbuja de mensaje */
-  .message-bubble {
-    background-color: #f20c0c; /* Color de fondo de la burbuja de mensaje */
-    padding: 10px; /* Espaciado interno de la burbuja de mensaje */
-    border-radius: 10px; /* Borde redondeado de la burbuja de mensaje */
-    max-width: 100%; /* Ancho máximo de la burbuja de mensaje */
-    word-wrap: break-word;
-    overflow: hidden; /* Ocultar el desbordamiento horizontal */
-  }
-  
- 
-  .message.user .message-bubble {
-    margin-left: auto; 
-    background-color: #9be070;
-  }
-  
-  
-  .message.model .message-bubble {
-    margin-right: auto; 
-  }
-  
-  
-  .chat-button {
-    position: fixed; 
-    bottom: 20px; 
-    right: 20px; 
-    background-color: transparent;
-   width: 300px;
-    border: none;
-    width: 100px;
-    z-index: 999; 
-    border: none;
-    padding: 0%;
-  }
-  .chat-button:focus {
-    outline: none;
-  }
+  position: fixed;
+  bottom: 20px; /* Distancia desde el borde inferior */
+  right: 20px; /* Distancia desde el borde derecho */
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+.chat-container {
+  position: fixed;
+  bottom: 140px; /* Ajustar según la altura del input */
+  right: 20px;
+  transition: top 0.5s ease;
+  background-color: rgb(202, 35, 35);
+  border: none;
+  border-radius: 20px;
+  height: auto;
+  width: 300px;
+  max-height: calc(100vh - 160px); /* Ajustar según la altura máxima deseada */
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: flex-end; /* Ajuste para que los mensajes estén alineados en la parte inferior */
+  padding: 5px;
+}
 
-  .chat-button:hover{
-    background-color: transparent;
-  }
- 
+/* Ajuste del input */
+.input-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Ajuste para alinear el input y el botón en el contenedor */
   
-  .input-form {
-    display: flex;
-    
-  
-  }
-  
-  
-  
-  .input-form input{
-    display: flex;
-    height: 40px;
-    width: 160px;
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: -5px;
-    border: none;
-  
-  }
-  
-  .input-form button {
-    color: #f20c0c;
-    background-color: transparent;
-    width: 50px;
-  }
+}
 
-  #envio{
-    display: flex;
-    margin-top: -4px;
-    margin-left: 5px;
-  }
-  
-  
-  
-  .input-form button:focus{
-    outline: none;
-  }
-  
+.input-form input {
+  height: 40px;
+  width: 180px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(0, 0, 0);
+  color: rgb(243, 243, 243);
+  margin-left: 70px;
+}
 
-  .robot-icon {
-    font-size: 80px; 
-    color: #f20c0c;
-    position: relative; /* Ajusta el icono de forma relativa */
-    top: 20px; /* Ajusta la distancia del icono respecto al borde superior */
-    animation: moveRobot 1s infinite alternate; 
-    
-    
+.input-form button {
+  color: #ff0000;
+  background-color: transparent;
+  width: 30px;
+  margin-top: px;
+  padding: 25px;
+}
+/* Estilos CSS para el contenedor de cada mensaje */
+.message {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px; 
+}
+
+/* Estilos CSS para la burbuja de mensaje */
+.message-bubble {
+  background-color: #a7d4fb; /* Color de fondo de la burbuja de mensaje */
+  position: relative; /* Cambiar a posición relativa */
+  padding: 10px; /* Espaciado interno de la burbuja de mensaje */
+  border-radius: 10px; /* Borde redondeado de la burbuja de mensaje */
+  max-width: 80%; /* Ancho máximo de la burbuja de mensaje */
+  word-wrap: break-word;
+  overflow: hidden; /* Ocultar el desbordamiento horizontal */
+}
+
+/* Estilos para la burbuja de mensaje de usuario */
+.message.user .message-bubble {
+  margin-left: auto; 
+  background-color: #6eefcf; /* Color de fondo de la burbuja de mensaje del usuario */
+  position: relative; /* Añade posición relativa para que el triángulo se posicione correctamente */
+  border-radius: 10px 10px 10px 0; /* Ajusta el radio de los bordes para que el triángulo tenga la forma adecuada */
+}
+
+/* Estilos para el triángulo de la burbuja de mensaje de usuario */
+.message.user .message-bubble::before {
+  content: ''; /* Añade contenido al seudoelemento */
+  position: absolute; /* Añade posición absoluta para posicionar el triángulo */
+  bottom: -20px; /* Ajusta la distancia del triángulo desde el borde inferior */
+  left: 50%; /* Ajusta la posición del triángulo */
+  transform: translateX(-50%); /* Centra el triángulo horizontalmente */
+  border-width: 10px; /* Tamaño del triángulo */
+  border-style: solid;
+  border-color: transparent transparent #6eefcf transparent; /* Colores del triángulo */
+}
+
+/* Estilos para la burbuja de mensaje del modelo */
+.message.model .message-bubble {
+  margin-right: auto; 
+  background-color: #a7d4fb; /* Color de fondo de la burbuja de mensaje del modelo */
+  position: relative; /* Añade posición relativa para que el triángulo se posicione correctamente */
+  border-radius: 10px 10px 0 10px; /* Ajusta el radio de los bordes para que el triángulo tenga la forma adecuada */
+}
+
+/* Estilos para el triángulo de la burbuja de mensaje del modelo */
+.message.model .message-bubble::before {
+  content: ''; /* Añade contenido al seudoelemento */
+  position: absolute; /* Añade posición absoluta para posicionar el triángulo */
+  bottom: -20px; /* Ajusta la distancia del triángulo desde el borde inferior */
+  left: 50%; /* Ajusta la posición del triángulo */
+  transform: translateX(-50%); /* Centra el triángulo horizontalmente */
+  border-width: 10px; /* Tamaño del triángulo */
+  border-style: solid;
+  border-color: transparent transparent #a7d4fb transparent; /* Colores del triángulo */
+}
+
+.chat-button {
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  background-color: transparent;
+  width: 300px;
+  border: none;
+  width: 100px;
+  z-index: 999; 
+  border: none;
+  padding: 0%;
+  animation: moveRobot 1s infinite alternate; 
+  margin-top: -50px;
+}
+
+.chat-button:focus {
+  outline: none;
+}
+
+.chat-button:hover {
+  background-color: transparent;
+}
+
+.robot-icon {
+  font-size: 80px; 
+  color: #f20c0c;
+  position: relative; /* Ajusta el icono de forma relativa */
+  top: 20px; /* Ajusta la distancia del icono respecto al borde superior */
+  animation: moveRobot 1s infinite alternate; 
+  
+  
+}
+
+
+#envio {
+  display: flex;
+  margin-top: -4px;
+  margin-left: 5px;
+}
+
+.input-form button:focus {
+  outline: none;
 }
 
 
@@ -138,4 +170,30 @@
     margin-top: 7px;
     margin-left: 7px;
     color: blue;
+}
+
+/* Estilos para el globo de mensaje */
+.chat-bubble {
+  position: absolute;
+  top: calc(-100% - 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f20c0c;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  z-index: 999;
+  transition: top 0.5s ease;
+}
+
+/* Estilos para esconder el globo de mensaje */
+.hidden {
+  display: 0;
+}
+
+/* Estilos para el botón del robot */
+.chat-button {
+  position: relative;
+  background-color: transparent;
+  border: none;
 }

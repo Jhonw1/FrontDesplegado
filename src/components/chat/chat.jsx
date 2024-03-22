@@ -11,9 +11,10 @@ function Chat() {
     const [question, setQuestion] = useState('');
     const [showChat, setShowChat] = useState(false);
     const [messageSent, setMessageSent] = useState(false);
+    const [receivedResponse, setReceivedResponse] = useState(false); // Nuevo estado para indicar si se recibió una respuesta
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         try {
             const response = await fetch('http://localhost:10101/chat', {
@@ -29,28 +30,30 @@ function Chat() {
             }
 
             const data = await response.json();
-            
+
             setHistory([...history, { parts: question, role: 'user' }]);
             setHistory(data.history);
             setQuestion('');
             setMessageSent(true); // Indica que se ha enviado un mensaje
+            setReceivedResponse(true); // Indica que se ha recibido una respuesta
         } catch (error) {
             console.error(error);
         }
     };
 
     const handleInputChange = (e) => {
-        setQuestion(e.target.value); 
+        setQuestion(e.target.value);
     };
 
     const handleChatButtonClick = () => {
         setShowChat(!showChat);
+        setReceivedResponse(false); // Restablece el estado de receivedResponse al hacer clic en el botón
     };
 
     return (
         <div className="App">
             {showChat && (
-                <div className="chat-container">
+                <div className="chat-container" style={{ backgroundColor: receivedResponse ? '#8f8ea3' : 'transparent' }}>
                     {history.map((message, index) => (
                         <div key={index} className={`message ${message.role}`}>
                             <div className="message-bubble">{message.parts.replace(/\*\*/g, '')}</div>
@@ -61,18 +64,16 @@ function Chat() {
                             )}
                         </div>
                     ))}
+                    <form onSubmit={handleSubmit} className="input-form">
+                        <input
+                            type="text"
+                            value={question}
+                            onChange={handleInputChange}
+                            placeholder="Escribe tu pregunta..."
+                        />
+                        <button id='envio' type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
+                    </form>
                 </div>
-            )}
-            {showChat && (
-                <form onSubmit={handleSubmit} className="input-form">
-                    <input
-                        type="text"
-                        value={question}
-                        onChange={handleInputChange}
-                        placeholder="Escribe tu pregunta..."
-                    />
-                    <button id='envio' type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
-                </form>
             )}
             <footer>
                 <button onClick={handleChatButtonClick} className="chat-button">

@@ -1,5 +1,21 @@
 /* Gruas.css */
+.search-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  margin-bottom: 20px; /* Espacio entre el input y las grúas */
+}
 
+/* Estilos para el input de búsqueda */
+.search {
+  width: 30%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  
+}
+.search::placeholder {
+  color: #ffffff; /* Cambia el color del placeholder según tu preferencia */
+}
 .gruas-list {
   display: flex;
   flex-wrap: wrap;

@@ -1,7 +1,7 @@
 import './Register.css';
 import { SERVER_URL } from '../../constants/constants';
 import { validateFields } from '../../constants/utils';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 export default function Register() {
 
@@ -34,7 +34,7 @@ export default function Register() {
         icon: 'success',
         confirmButtonText: 'OK',
         customClass: {
-          popup: 'my-popup-class', // Nombre de la clase personalizada
+          popup: 'my-popup-class', 
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -42,7 +42,7 @@ export default function Register() {
         }
       });
     } else {
-      const errorData = await response.json(); // Intenta parsear la respuesta como JSON
+      const errorData = await response.json(); 
       console.error('Error al registrar el usuario:', errorData);
       Swal.fire({
         icon: "error",
